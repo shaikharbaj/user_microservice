@@ -3,6 +3,7 @@ import { CategoryService } from './category.service';
 import { MessagePattern } from '@nestjs/microservices';
 import { Data } from 'src/common/decorators/data.decorator';
 import { ID } from 'src/common/decorators/id.decorator';
+import { createCategoryDTO } from './dto/createcategory.dto';
 
 @Controller('category')
 export class CategoryController {
@@ -17,7 +18,7 @@ export class CategoryController {
     }
 
     @MessagePattern({ role: "CREATE-CATEGORY", cmd: "create-category" })
-    async createCategory(@Data() data: any) {
+    async createCategory(@Data() data: createCategoryDTO) {
         return await this.categoryService.createCategory(data);
     }
 

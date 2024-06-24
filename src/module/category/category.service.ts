@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 import { PrismaService } from '../prisma/prisma.service';
+import { createCategoryDTO } from './dto/createcategory.dto';
 
 @Injectable()
 export class CategoryService {
@@ -43,7 +44,7 @@ export class CategoryService {
         return category;
     }
 
-    async createCategory(payload: any) {
+    async createCategory(payload: createCategoryDTO) {
         try {
             //check category is already present or not........
             //  check it has parent_id is present or not
