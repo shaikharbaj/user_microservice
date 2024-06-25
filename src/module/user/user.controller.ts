@@ -10,8 +10,10 @@ export class UserController {
 
     @MessagePattern({role:"CHECK-USER_EXIST",cmd:"check-user-exist"})
     async checkuserexist(@Data() data:any){
-        return data;
+        return await this.userservice.checkuserexist(data);
             // return await this.userservice.checkuserbycondition();
     }
+
+    // @MessagePattern({role:"CHECK-ADMIN-PRESENT",cmd:"check_admin_present"})
 
 }
